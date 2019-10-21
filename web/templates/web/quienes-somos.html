@@ -1,0 +1,51 @@
+{% extends 'web/base.html' %}
+{% block content%}
+    <div class="contenedor-descripcion">
+        <h1>¡ Descubre quienes somos ! </h1>
+        <h2>Tenermos la mejor oferta de acuerdo a tus necesidades</h2>
+        <p></p>
+    </div>
+    <!-- division donde tendrá lugar apartado de servicios y contactos -->
+    <div class="servicios-contacto">
+        <div class="row around-lg">
+            <!-- lista de servicios que entrega la veterinaria -->
+            <div id="divPla" class="col-xs-12 col-md-6">
+                <img src="https://joha-neira.github.io/ilovepet/img/Q1.jpg" alt="atendiendo perrito" style="width:70%">
+            </div>
+            <!-- redes sociales y numero de contacto de la veterinaria -->
+            <div id="div" class="col-xs-12 col-md-6">
+                <br>
+                <h2>Nuestro Enfoque</h2>
+                <br>
+                <p>La Clínica Veterinaria I love Pet nace por la necesidad de prestar un servicio digno y de categoría a
+                    todas las mascotas que día a día están haciendo parte de nuestras familias.</p>
+                <br>
+                <p>Nuestro objetivo es ofrecerles a todos nuestros clientes un plan de salud económico, capaz de
+                    satisfacer cualquier necesidad que su mascota requiera.</p>
+                <br>
+                <br>
+                <h2>Ética y Profesionalismo</h2>
+                <br>
+                <p>Nos caracterizamos por atender a su mascota de la manera más humana, todos los animales son tratados
+                    con el mejor respeto y la mejor atención posible, nuestros profesionales están facultados para
+                    atender todo tipo de consulta, nuestro compromiso hacia ellos es lo que hace de la clínica I love
+                    Pet una de las mejores de la ciudad</p>
+            </div>
+        </div>
+    </div>
+    <!-- overlay login -->
+    <div class="overlay" id="overlay">
+        <div class="popup" id="popup">
+            <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+            <h3>Inicia Sesión</h3>
+            <h4>en nuestra plataforma</h4>
+            <form action="#">
+                <div class="contenedor-inputs">
+                    <input type="text" placeholder="Usuario" id="userTxt">
+                    <input type="password" placeholder="Contraseña" id="userPwd">
+                </div>
+                <input type="submit" class="btn-submit" value="Entrar">
+            </form>
+        </div>
+    </div>
+{% endblock %}

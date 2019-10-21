@@ -1,0 +1,68 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block content %} 
+ <!-- galería tipo carrusel implementada con slick -->
+ 
+ <div class="contenedor col-xs-12">
+    <div class="slider">
+        <div><img src="https://joha-neira.github.io/ilovepet/img/carrousel1.jpg" style="width:100%; height:100%" alt=""></div>
+        <div><img src="https://joha-neira.github.io/ilovepet/img/carrousel2.jpg" alt="" style="width:100%; height:100%"></div>
+        <div><img src="https://joha-neira.github.io/ilovepet/img/carrousel3.jpg" alt="" style="width:100%; height:100%"></div>
+    </div>
+</div>
+    <!-- division donde tendrá lugar apartado de servicios y contactos -->
+    <div class="servicios-contacto">
+        <div class="row ">
+            <!-- lista de servicios que entrega la veterinaria -->
+            <div id="div5" class="col-xs-12 col-md-6 start-xs center-sm">
+                <h2>Servicios</h2><br><br>
+                <ul class="lista-servicios">
+                    <li>Consultas veterinarias</li>
+                    <li>Medicina Preventiva</li>
+                    <li>Hospitalizaciones</li>
+                    <li>Cirugías</li>
+                    <li>Procedimientos</li>
+                </ul>
+                <ul class="lista-servicios">
+                    <li>Exámenes de laboratorio</li>
+                    <li>Radiografías</li>
+                    <li>Ecografías</li>
+                    <li>Consultas de especialidad</li>
+                    <li>Peluquería</li>
+                </ul>
+                <br><br>
+                <img src="https://joha-neira.github.io/ilovepet/img/servicios.jpg" alt="atendiendo perrito" style="width:95%">
+            </div>
+            <!-- redes sociales y numero de contacto de la veterinaria -->
+            <div id="div6" class="col-xs-12 col-md-6 end-xs center-sm">
+                <h2>¿DUDAS?</h2>
+                <h4>¡CONTÁCTANOS!</h4><br>
+                <p>Síguenos en nuestras redes sociales para informarte acerca de las diversas campañas y</p>
+                <p>actividades que realizamos para la comunidad ofreciendo opciones de financiamiento con el deseo de
+                    seguir ayudando.</p>
+                <br>
+                <h4 id="wsp"> +56 9 76554368</h4>
+                <h4 id="ttr"> @IlovePet</h4>
+                <h4 id="fcbk"> I love Pet Veterinaria</h4>
+                <h4 id="inst"> @IlovePet</h4>
+                <img src="https://joha-neira.github.io/ilovepet/img/telefono.jpg" alt="Perrito al telefono" style="width:40%">
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'JS/scripts.js' %}"></script>
+    <!-- overlay login -->
+    <div class="overlay" id="overlay">
+        <div class="popup" id="popup">
+            <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+            <h3>Inicia Sesión</h3>
+            <h4>en nuestra plataforma</h4>
+            <form action="#">
+                <div class="contenedor-inputs">
+                    <input type="text" placeholder="Usuario" id="userTxt">
+                    <input type="password" placeholder="Contraseña" id="userPwd">
+                </div>
+                <input type="submit" class="btn-submit" value="Entrar">
+            </form>
+        </div>
+    </div>
+{% endblock %}

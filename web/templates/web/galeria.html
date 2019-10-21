@@ -1,0 +1,55 @@
+{% extends 'web/base.html' %}
+
+{% block content %}
+    <div class="contenedor-descripcion">
+        <h1>¡ Date un paseo !</h1>
+        <h2>Entérate de nuestros principales servicios a la comunidad</h2>
+        <p></p>
+    </div>
+    <div class="contenedor-galeria row center-xs ">
+        <div class="columna-izq col-lg-6">
+            <h2>Galería de Servicios</h2>
+            <div class="item-galeria item-1 col-xs-12 ">
+                <a class="example-image-link"
+                    href="https://sites.google.com/site/peluqueriacaninaec/_/rsrc/1560120660862/home/peluqueria-canina-1.jpg"
+                    data-lightbox="example-1"
+                    data-title="Servicio de peluquería: Lunes, Miércoles y Viernes en todas nuestras sucursales !"><img
+                        class="example-image"
+                        src="https://sites.google.com/site/peluqueriacaninaec/_/rsrc/1560120660862/home/peluqueria-canina-1.jpg"
+                        alt="perro en peluqueria" /></a>
+            </div>
+            <div class="item-galeria item-3 col-xs-12 bottom-lg">
+                <a class="example-image-link" href="https://joha-neira.github.io/ilovepet/img/examenes.jpg" data-lightbox="example-1"
+                    data-title="Servicio de exámenes: Exámenes especializados como mielografía, radiografía de columna, análisis de líquido cefaloraquídeo, electroencefalografía, entre otros"><img
+                        class="example-image" src="https://joha-neira.github.io/ilovepet/img/examenes.jpg" alt="perro con veterinaria" /></a>
+            </div>
+        </div>
+        <div class="columna-der col-lg-6">
+            <div class="item-galeria item-2 col-xs-12 center-xs ">
+                <a class="example-image-link" href="https://joha-neira.github.io/ilovepet/img/VetPlusDog.jpg" data-lightbox="example-1"
+                    data-title="Servicio de control mascota sana: Checkeos periódicos y preventivos para el regalón del hogar"><img
+                        class="example-image" src="https://joha-neira.github.io/ilovepet/img/VetPlusDog.jpg" alt="perro con veterinaria" /></a>
+            </div>
+            <div class="item-galeria item-4 col-xs-12 ">
+                <a class="example-image-link" href="https://joha-neira.github.io/ilovepet/img/cirugias-veterinarias.jpg" data-lightbox="example-1"
+                    data-title="Servicio de cirugías: Cirugía general, exploratoria, preventiva, terapéutica y urgencias 24 horas, contactate con nosotros y te responderemos a la brevedad"><img
+                        class="example-image" src="https://joha-neira.github.io/ilovepet/img/cirugias-veterinarias.jpg" alt="perro con veterinaria" /></a>
+            </div>
+        </div>
+    </div>
+    <!-- overlay login -->
+    <div class="overlay" id="overlay">
+        <div class="popup" id="popup">
+            <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+            <h3>Inicia Sesión</h3>
+            <h4>en nuestra plataforma</h4>
+            <form action="#">
+                <div class="contenedor-inputs">
+                    <input type="text" placeholder="Usuario" id="userTxt">
+                    <input type="password" placeholder="Contraseña" id="userPwd">
+                </div>
+                <input type="submit" class="btn-submit" value="Entrar">
+            </form>
+        </div>
+    </div>
+    {% endblock %}
