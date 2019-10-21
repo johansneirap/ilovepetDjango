@@ -26,6 +26,14 @@ btnCerrarPopup.addEventListener('click', function(e){
   $('#userTxt').val(''); // dejamos en blanco los input de usuario y contraseña al cerrar el popup
   $('#userPwd').val('');
 });
+$('.slider').slick({
+  dots: true,
+  infinite: true,
+  speed: 500,
+  cssEase: 'linear',
+  autoplay: true,
+  fade: true
+});
 //opciones de galería lightbox
 lightbox.option({
   'albumLabel':"",

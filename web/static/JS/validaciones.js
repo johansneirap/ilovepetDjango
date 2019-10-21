@@ -129,7 +129,7 @@ $(function() {
       },
       "keyup": function(event) {
         $(event.target).val(function(index, value) {
-          return value.replace(/[^a-zA-Z]/g, "");
+          return value.replace(/[^a-zA-Z\s]/g, "");
         });
       }
     });
