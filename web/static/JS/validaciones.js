@@ -1,3 +1,5 @@
+$(document).ready(function() {
+
 jQuery.validator.addMethod("rutValido", function (value, element) {
   if (Fn.validaRut(value)) {
       return true;
@@ -72,7 +74,7 @@ $(function() {
             mm='0'+mm
         } 
     today = yyyy+'-'+mm+'-'+dd;
-    document.getElementById("bday").setAttribute("max", today);
+    document.getElementById("id_fechaNacimiento").setAttribute("max", today);
     
     $("#rut").on({
       "focus": function(event) {
@@ -123,7 +125,7 @@ $(function() {
         });
       }
     });
-    $("#nombre").on({
+    $("#id_nombre").on({
       "focus": function(event) {
         $(event.target).select();
       },
@@ -133,3 +135,4 @@ $(function() {
         });
       }
     });
+  });

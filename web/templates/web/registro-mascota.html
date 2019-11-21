@@ -1,0 +1,46 @@
+{% extends 'web/base.html' %}
+
+{% block content %}
+<div class="contenedor-descripcion">
+    <h1>Ingresar datos de la mascota</h1>
+</div>
+<div class="wrap">
+    <!-- Formulario -->
+    <div class="contenedor-formulario col-xs-12">
+
+        <form class="formulario" action="" method="post">
+            {% csrf_token %}
+            <div class="input-group">
+                <label class="label" for="rutMascota">Rut:</label>
+                {{form.rutMascota}}
+            </div>
+            <div class="input-group">
+                <label class="label" for="nombre">Nombre:</label>
+                {{form.nombre}}
+            </div>
+            <div class="input-group">
+                <label class="label" for="sexo">Sexo:</label>
+                {{form.sexo}}
+            </div>
+            <div class="input-group selectDate">
+                <label class="label" for="fechaNacimiento">Fecha de Nacimiento:</label>
+                {{form.fechaNacimiento}}
+            </div>
+            <div class="input-group">
+                    <label class="label" for="tipo">Tipo:</label>
+                    {{form.tipo}}
+                </div>
+            <div class="input-group">
+                <label class="label" for="direccion">Direccion:</label>
+                {{form.direccion}}
+            </div>
+            <div class="input-group">
+                <label class="label" for="dueno">Dueño:</label>
+                {{form.dueno}}
+            </div><br>
+            <input type="submit" id="btn-submit" value="Guardar">
+        </form>
+
+    </div>
+</div>
+{% endblock%}

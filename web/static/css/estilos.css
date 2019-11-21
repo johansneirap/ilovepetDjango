@@ -376,6 +376,13 @@ color: deepskyblue;
 .popup form .btn-submit:hover {
 	background:#6dd1fd;
 }
+ #id_fechaNacimiento_month, #id_fechaNacimiento_year {
+    width: 26.5%;
+    margin-left: 4%;
+}
+#id_fechaNacimiento_day{
+    width: 18%;
+}
 
 /* ------------------------- */
 /* ANIMACIONES */
@@ -489,4 +496,5 @@ color: deepskyblue;
     input, select{
         width:100%;
     }
+    
 }
