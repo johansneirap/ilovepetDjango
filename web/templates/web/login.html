@@ -8,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>I-love-Pet</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Eczar&display=swap" rel="stylesheet">
@@ -34,15 +35,15 @@
         <div class="popup active" id="popup">
             <h3>Inicia Sesión</h3>
             <h4>en I Love Pet </h4>
-            <form action="" method="POST"> 
+            <form action="" method="POST">
                 {%  csrf_token %}
                 {% if form.error_messages %}
-                    <div class="alert alert-danger alert-dismissible" role="alert">
-                        <button type="button" class="close" data-dismiss ="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <strong>Advertencia: </strong> {{ form.get_invalid_login_error }}
-                    </div>
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>Advertencia: </strong> {{ form.get_invalid_login_error }}
+                </div>
                 {% endif %}
                 <div class="contenedor-inputs">
                     {{ form.username }}
@@ -52,10 +53,17 @@
                 </div>
                 <input type="submit" class="btn-submit" value="Entrar">
             </form>
-            <br>
-    <a href="{% url 'home' %}"><button class="btn btn-primary" style="width: 56%;">Sitio Invitado <i class="fas fa-home"></i></button></a>
+            <a class="btn" style="color:red" href="{% url 'password_reset'%}">¿Olvidaste tu contraseña? <u> Recuperala aquí...</u></a>
+            <br><br>
+            <a href="{% url 'home' %}">
+                <button class="btn btn-primary" style="width: 56%;">Sitio Invitado 
+                    <i class="fas fa-home"></i>
+                </button>
+            </a>
+
         </div>
     </div>
     <script src="{% static 'JS/scripts.js' %}"></script>
 </body>
+
 </html>

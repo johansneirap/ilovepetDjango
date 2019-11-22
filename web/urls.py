@@ -11,7 +11,7 @@ urlpatterns = [
     path('planes.html', views.planes,name='planes'),
     path('quienes-somos.html', views.about,name='quienes-somos'),
     path('registro.html', views.registro,name='registro'),
-    path('registro2.html', views.registro2,name='registro2'),
+    path('registro2', views.registro2,name='registro2'),
     path('admin/', admin.site.urls),
     path('usuario/',views.usuario,name="usuario" ),
     path('registro-mascota.html', views.registro_mascota,name='registro_mascota'),
