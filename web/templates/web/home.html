@@ -1,8 +1,7 @@
 {% extends 'web/base.html' %}
-{% load static %}
+
 {% block content %} 
  <!-- galería tipo carrusel implementada con slick -->
- 
  <div class="contenedor col-xs-12">
     <div class="slider">
         <div><img src="https://joha-neira.github.io/ilovepet/img/carrousel1.jpg" style="width:100%; height:100%" alt=""></div>
@@ -49,20 +48,5 @@
             </div>
         </div>
     </div>
-    <script src="{% static 'JS/scripts.js' %}"></script>
-    <!-- overlay login -->
-    <div class="overlay" id="overlay">
-        <div class="popup" id="popup">
-            <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
-            <h3>Inicia Sesión</h3>
-            <h4>en nuestra plataforma</h4>
-            <form action="#">
-                <div class="contenedor-inputs">
-                    <input type="text" placeholder="Usuario" id="userTxt">
-                    <input type="password" placeholder="Contraseña" id="userPwd">
-                </div>
-                <input type="submit" class="btn-submit" value="Entrar">
-            </form>
-        </div>
-    </div>
+    
 {% endblock %}
