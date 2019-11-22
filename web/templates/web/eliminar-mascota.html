@@ -1,0 +1,21 @@
+{% extends 'web/perfil.html' %}
+
+{% block content %}
+<div class="contenedor-descripcion">
+    <h1>Esta a punto de eliminar un registro...</h1>
+</div>
+<div class="wrap">
+    <!-- Formulario -->
+    <div class="contenedor-formulario col-xs-12">
+
+        <form class="formulario" action="" method="post">
+            {% csrf_token %}
+        <h3>¿Desea eliminar el registro de {{mascota.nombre}}?</h3>
+
+        <button class="btn btn-danger" type="submit">Sí, eliminar</button>
+        <a class="btn btn-default" href="{% url 'listado_mascotas' %}">Cancelar</a>
+        </form>
+
+    </div>
+</div>
+{% endblock%}
