@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import ClienteForm,MascotaForm, FormularioLogin
-from .models import Mascota, TipoMascota
+from .models import Mascota, TipoMascota, Galeria
 from django.views.generic.edit import FormView,CreateView
 from django.contrib.auth import login,logout
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
@@ -51,7 +51,8 @@ def home(request):
     return render(request, 'web/home.html',{})
 
 def galeria(request):
-    return render(request, 'web/galeria.html')
+    galerias = Galeria.objects.all()
+    return render(request, 'web/galeria.html', {'galerias': galerias})
 
 def planes(request):
     return render(request, 'web/planes.html')
@@ -111,10 +112,10 @@ def listado_mascotas(request):
     else:
         if request.GET.get('featured'):
             featured_filter = request.GET.get('featured')
-            mascotas = Mascota.objects.filter(sexo=featured_filter)
+            mascotas = Mascota.objects.filter(sexo=featured_filter,dueno=request.user.cliente.rut)
         elif request.GET.get('featured2'):
             featured_filter = request.GET.get('featured2')
-            mascotas = Mascota.objects.filter(tipo=featured_filter)
+            mascotas = Mascota.objects.filter(tipo=featured_filter,dueno=request.user.cliente.rut)
         else:
             mascotas = Mascota.objects.filter(dueno=request.user.cliente.rut)
         contexto = {'mascotas':mascotas,'tipos':tipos}

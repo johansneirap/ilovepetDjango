@@ -50,9 +50,12 @@
 
             </ul>
         </div>
-        <form class="form-inline">
-            <a href="{% url 'logout'%}"><button class="btn btn-outline  my-2 my-sm-0" style="color:white;border:1px" type="submit">Logout</button></a>
-        </form>
+        <a href="{% url 'logout' %}">
+            <button class="btn btn-outline  my-2 my-sm-0" style="color:white;border:1px" type="">
+                Logout
+            </button>
+            </a>
+
     </nav>
     {% block content %}
     {% endblock %}

@@ -7,7 +7,17 @@
         <p></p>
     </div>
     <div class="contenedor-galeria row center-xs ">
-        <div class="columna-izq col-lg-6">
+            {% for galeria in galerias %}
+            <div class="columna-izq col-lg-6">
+                <div class="item-galeria col-xs-12 bottom-lg">
+                    <a class="example-image-link" href="{{ galeria.image.url }}" data-lightbox="example-1"
+                        data-title="{{ galeria.descripcion }}"><img
+                            class="example-image" src="{{ galeria.image.url }}" alt="perro con veterinaria" /></a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+        <!-- <div class="columna-izq col-lg-6">
             <h2>Galería de Servicios</h2>
             <div class="item-galeria item-1 col-xs-12 ">
                 <a class="example-image-link"
@@ -36,5 +46,5 @@
                         class="example-image" src="https://joha-neira.github.io/ilovepet/img/cirugias-veterinarias.jpg" alt="perro con veterinaria" /></a>
             </div>
         </div>
-    </div>
+    </div> -->
     {% endblock %}

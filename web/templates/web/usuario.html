@@ -2,8 +2,65 @@
 
 {% block content %}
 {% if user.is_staff %}
-<h1>Welcome, {{ user.first_name }}. Thanks for logging in.</h1>
+<div class="container">
+    <br>
+    <h2 class="text-center">Bienvenido, {{ user.first_name }}</h2>
+</div>
 {% else %}
-<h1>Welcome, {{ user.cliente.nombre }}. Thanks for logging in.</h1>
+<div class="container">
+    <br>
+        <h2 class="text-center">Bienvenido, {{ user.cliente.nombre }}</h2>
+    </div>
+<br><br>
+<div class="container">
+    <form action="">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Nombre: </label>
+            <input class="form-control" type="text" placeholder="Default input" value="{{user.cliente.nombre}}">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Rut: </label>
+            <input class="form-control" type="text" placeholder="Default input" value="{{user.cliente.rut}}"
+                disabled="true">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Numero de teléfono: </label>
+            <input class="form-control" type="text" placeholder="Default input" value="{{user.cliente.numeroTelefono}}">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Fecha de Nacimiento: </label>
+            <input class="form-control" type="text" placeholder="Default input" value="{{user.cliente.fechaNacimiento}}"
+                disabled="true">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Nacionalidad: </label>
+            <input class="form-control" type="text" placeholder="Default input" value="{{user.cliente.nacionalidad}}">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Numero de contacto: </label>
+            <input class="form-control" type="text" placeholder="Default input" value="{{user.cliente.numeroContacto}}">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Telefono de oficina: </label>
+            <input class="form-control" type="text" placeholder="Default input"
+                value="{{user.cliente.telefonoOficina}}">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Profesión: </label>
+            <input class="form-control" type="text" placeholder="Default input" value="{{user.cliente.profesion}}">
+        </div>
+        <div class="form-group">
+            <label for="">Regiones:</label>
+            <input class="form-control" name="" id="regiones">
+        </div>
+        <div class="form-group">
+            <label for="comuna">Comuna: </label>
+            <input class="form-control" type="text" id="comunas" placeholder="Default input"
+                value="{{user.cliente.comuna}}">
+        </div>
+    </form>
+</div>
+
+
 {% endif %}
 {% endblock %}

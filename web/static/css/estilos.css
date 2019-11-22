@@ -248,7 +248,7 @@ margin-bottom: 10px;
     width: 230px;
     float: left;
 }
-input, select{
+.contenedor-formulario .formulario input, select{
     border: none; 
     border:solid 1px #ccc;
     border-radius: 10px;

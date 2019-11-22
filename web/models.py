@@ -37,3 +37,9 @@ class Mascota(models.Model):
     def __str__(self):
         return '{} {}'.format(self.nombre, self.rutMascota)
 
+class Galeria(models.Model):
+    image = models.ImageField(upload_to='galeria', blank=True)
+    descripcion = models.CharField(max_length=200)
+
+    def __str__(self):
+        return '{}'.format(self.descripcion) 
