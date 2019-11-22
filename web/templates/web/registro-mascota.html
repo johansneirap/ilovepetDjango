@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 {% extends 'web/base.html' %}
+=======
+{% extends 'web/perfil.html' %}
+>>>>>>> master
 
 {% block content %}
 <div class="contenedor-descripcion">
@@ -27,17 +31,39 @@
                 {{form.fechaNacimiento}}
             </div>
             <div class="input-group">
+<<<<<<< HEAD
                     <label class="label" for="tipo">Tipo:</label>
                     {{form.tipo}}
                 </div>
+=======
+                <label class="label" for="tipo">Tipo:</label>
+                {{form.tipo}}
+            </div>
+>>>>>>> master
             <div class="input-group">
                 <label class="label" for="direccion">Direccion:</label>
                 {{form.direccion}}
             </div>
+<<<<<<< HEAD
             <div class="input-group">
                 <label class="label" for="dueno">Dueño:</label>
                 {{form.dueno}}
             </div><br>
+=======
+            {% if user.is_superuser%}
+            <div class="input-group">
+                <label class="label" for="dueno">Dueño:</label>
+                {{form.dueno}}
+            </div>
+            {% else %}
+            <div class="input-group">
+                <label class="label" for="dueno">Dueño:</label>
+                <select name="dueno" id="dueno" class="">
+                    <option value="{{user.cliente.rut}}">{{user.cliente}}</option>
+                </select>
+            </div>
+            {%endif%}<br>
+>>>>>>> master
             <input type="submit" id="btn-submit" value="Guardar">
         </form>
 

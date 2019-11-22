@@ -153,12 +153,14 @@ margin-bottom: 10px;
     padding: 20px;
     left: 10%;
     height: 180px;
+    margin-top: 5px;
 }
 .footer-info .part3, .part2{
     padding:20px;
     background: #6dd1fd;
     height: 100%;
-    left: 10%;
+    left: 0%;
+    margin-top: 5px;
 }
 
 .lista-servicios{
@@ -297,7 +299,7 @@ color: deepskyblue;
 	align-items: center;
 	justify-content: center;
 	display: flex;
-	visibility: hidden;
+	visibility: visible;
 }
 
 .overlay.active {
@@ -313,9 +315,9 @@ color: deepskyblue;
 	text-align: center;
 	width: 600px;
 	
-	transition: .3s ease all;
-	transform: scale(0.7);
-	opacity: 0;
+	/* transition: .3s ease all; */
+	/* transform: scale(0.7); */
+	/* opacity: 0; */
 }
 
 .popup .btn-cerrar-popup {
@@ -335,18 +337,18 @@ color: deepskyblue;
 	font-size: 36px;
 	font-weight: 600;
 	margin-bottom: 10px;
-	opacity: 0;
+	opacity: 1;
 }
 
 .popup h4 {
 	font-size: 26px;
 	font-weight: 300;
 	margin-bottom: 40px;
-	opacity: 0;
+	opacity: 1;
 }
 
 .popup form .contenedor-inputs {
-	opacity: 0;
+	opacity: 1;
 }
 
 .popup form .contenedor-inputs input {
@@ -370,7 +372,7 @@ color: deepskyblue;
 	font-family: 'Lato', sans-serif;
 	font-size: 16px;
 	cursor: pointer;
-	transition: .3s ease all;
+	/* transition: .3s ease all; */
 }
 
 .popup form .btn-submit:hover {
@@ -387,10 +389,10 @@ color: deepskyblue;
 /* ------------------------- */
 /* ANIMACIONES */
 /* ------------------------- */
-.popup.active {	transform: scale(1); opacity: 1; }
-.popup.active h3 { animation: entradaTitulo .8s ease .5s forwards; }
-.popup.active h4 { animation: entradaSubtitulo .8s ease .5s forwards; }
-.popup.active .contenedor-inputs { animation: entradaInputs 1s linear 1s forwards; }
+/* .popup.active {	transform: scale(1); opacity: 1; } */
+/* .popup.active h3 { animation: entradaTitulo .8s ease .5s forwards; } */
+/* .popup.active h4 { animation: entradaSubtitulo .8s ease .5s forwards; } */
+/* .popup.active .contenedor-inputs { animation: entradaInputs 1s linear 1s forwards; } */
 
 @keyframes entradaTitulo {
 	from {

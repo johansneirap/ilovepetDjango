@@ -8,6 +8,7 @@
         <!-- Formulario -->
         <div class="contenedor-formulario col-xs-12">
             <form action="#" class="formulario" id="formulario_registro" name="formulario_registro" method="POST">
+<<<<<<< HEAD
                 <div class="row">
                     <div class="div-izq col-lg-6">
                         <div class="input-group">
@@ -85,8 +86,103 @@
                         <input type="submit" id="btn-submit" value="Enviar">
                     </div>
                 </div>
+=======
+                {% csrf_token %}
+                {{form.as_p}}
+                {{form_user.as_p}}
+                <button type="submit">Guardar</button>
+>>>>>>> master
             </form>
             <script src="{% static 'JS/validaciones.js' %}"></script>
         </div>
     </div>
+<<<<<<< HEAD
+=======
+    <div class="wrap">
+            <!-- Formulario -->
+            <div class="contenedor-formulario col-xs-12">
+                <form action="#" class="formulario" id="formulario_registro" name="formulario_registro" method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="div-izq col-lg-6">
+                                <div class="input-group">
+                                    <label class="label" for="rut">Rut:</label>
+                                    {{form.rut}} <!-- id will be id_%s , in this example id_rut-->
+                                </div>
+                                <div class="input-group">
+                                    <label class="label" for="nombre">Nombre completo:</label>
+                                    {{form.nombre}}
+                                </div>
+                                <div class="input-group">
+                                    <label class="label" for="bday">Fecha de Nacimiento:</label>
+                                    {{form.fechaNacimiento}}
+                                </div>
+                                <div class="input-group">
+                                    <label class="label" for="nac">Nacionalidad:</label>
+                                    {{form.nacionalidad}}
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label class="label" for="regiones">Región:</label>
+                                    {{form.region}}
+                                    <!-- <select name="regiones" id="regiones"></select> -->
+                                </div>
+                                <div class="input-group">
+                                    <label class="label" for="comunas">Comunas:</label>
+                                    {{form.comuna}}
+                                    <!-- <select name="comunas" id="comunas"></select> -->
+                                </div>
+                                <div class="input-group">
+                                    <label class="label" for="email">Correo:</label>
+                                    {{form.username}}
+                                </div>
+                                
+                            </div>
+                            <div class="div-der col-lg-6">
+                                <div class="input-group">
+                                    <label class="label" for="nro">Número de contacto:</label>
+                                    {{form.numeroContacto}}
+                                </div>
+                                <div class="input-group">
+                                    <label class="label" for="cel">Celular:</label>
+                                    <input type="text" name="cel" id="cel" required placeholder="569 1234 5678">
+                                </div>
+                                <div class="input-group">
+                                    <label class="label" for="ofi">Teléfono Oficina:</label>
+                                    {{form.telefonoOficina}}
+                                </div>
+                                <div class="input-group">   
+                                    <label class="label" for="prof">Profesión :</label>
+                                    {{form.profesion}}
+                                </div>
+                                <div class="input-group checkbox-group">
+                                    Tipo de mascota que posee: <br><br>
+                                        <input class="izq"  type="checkbox" name="perro" id="perro">
+                                        <label class="der" for="perro">Perro</label><br>
+                                        <input class="izq"  type="checkbox" name="gato" id="gato">
+                                        <label class="der" for="gato">Gato</label><br>
+                                        <input class="izq"  type="checkbox" name="otros" id="otros">
+                                        <label class="der" for="otros">Otros</label>
+                                    </div>
+                                <div class="input-group">
+                                    <label class="label" for="pass">Contraseña:</label>
+                                    <input type="password" required name="password1" id="pass">
+                                </div>
+                                <div class="input-group">
+                                    <label class="label" for="pass2">Repetir Contraseña:</label>
+                                    <input type="password" required name="password2" id="pass2">
+                                </div>
+                                <div class="input-group checkbox">
+                                    <input class="izq" required type="checkbox" name="terminos" id="terminos">
+                                    <label class="der" for="terminos">Acepto términos y condiciones</label>
+                                </div><br>
+                                <br>
+                                <input type="submit" id="btn-submit" value="Enviar">
+                            </div>
+                        </div>
+                </form>
+                <script src="{% static 'JS/validaciones.js' %}"></script>
+            </div>
+        </div>
+>>>>>>> master
 {% endblock %}

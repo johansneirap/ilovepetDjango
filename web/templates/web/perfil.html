@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<!-- Probando git veamos si funca... -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Perfil {{user.cliente.nombre}}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Eczar&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/flexbox.css' %}">
+    <link rel="stylesheet" href="{% static 'slick/slick-theme.css' %}">
+    <link rel="stylesheet" href="{% static 'slick/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <link rel="stylesheet" href="{% static 'lightbox/css/lightbox.css' %}" />
+    <script src="{% static 'lightbox/js/lightbox-plus-jquery.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
+    <script src="{% static 'JS/comunas.js' %}"></script>
+    <script src="{% static 'JS/validaciones.js' %}"></script>
+    <script src="{% static 'JS/scripts.js' %}"></script>
+    <script src="{% static 'slick/slick.js' %}"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:deepskyblue">
+        <a class="navbar-brand" href="{% url 'home'%}">I LOVE PET</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'usuario'%}">Perfil <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'listado_mascotas'%}">Mascotas</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'registro_mascota'%}">Agregar mascotas</a>
+                </li>
+
+            </ul>
+        </div>
+        <form class="form-inline">
+            <a href="{% url 'logout'%}"><button class="btn btn-outline  my-2 my-sm-0" style="color:white;border:1px" type="submit">Logout</button></a>
+        </form>
+    </nav>
+    {% block content %}
+    {% endblock %}
+</body>
+
+</html>

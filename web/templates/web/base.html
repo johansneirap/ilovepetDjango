@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>I-love-Pet</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Eczar&display=swap" rel="stylesheet">
@@ -42,7 +44,7 @@
                     <br><br>
                 </div>
                 <div class="tab-menu col-xs-12 col-md-2 center-xs middle-xs">
-                    <br>    
+                    <br>
                     <a href="planes.html" rel="noopener noreferrer">Planes</a>
                 </div>
                 <div class="tab-menu col-xs-12 col-md-2 col-lg-3 center-xs middle-xs">
@@ -57,8 +59,15 @@
                 </div>
                 <div class="tab-menu login col-xs-12 col-md-4 col-lg-3 center-xs middle-xs">
                     <br>
-                    <button class="btn-abrir-popup" id="btn-abrir-popup">Inicia Sesión</button><br>
-                    <a href="registro.html" id="link-registrar-usuario"> ¿No estás registrado? Crea tu cuenta</a>
+                    {% if request.user.is_authenticated %}
+                    <a href="{% url 'login' %}"><button class="btn-abrir-popup" id="btn-abrir-popup">Perfil</button></a><br>
+                    <a class="btn" href="{% url 'logout'%}">Logout</a>
+                    {% else %}
+                    <a href="{% url 'login' %}"><button class="btn-abrir-popup" id="btn-abrir-popup">Inicia
+                            Sesión</button></a><br>
+                    <a href="{%url 'registro2'%}" id="link-registrar-usuario"> ¿No estás registrado? Crea tu cuenta</a>
+                    {% endif %}
+
                     <br><br>
                 </div>
             </div>
@@ -67,7 +76,11 @@
     {% block content %}
     {% endblock %}
     <!-- overlay login -->
+<<<<<<< HEAD
     <div class="overlay" id="overlay">
+=======
+    <!-- <div class="overlay" id="overlay">
+>>>>>>> master
             <div class="popup" id="popup">
                 <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
                 <h3>Inicia Sesión</h3>
@@ -80,7 +93,11 @@
                     <input type="submit" class="btn-submit" value="Entrar">
                 </form>
             </div>
+<<<<<<< HEAD
         </div>
+=======
+        </div> -->
+>>>>>>> master
     <!-- footer de la página, compuesto por una imagen + datos de la veterinaria -->
     <div class="footer">
         <img src="{% static 'img/footer-bg.jpg' %}" alt="" style="width:100%">
@@ -88,27 +105,30 @@
     <div class="row footer-info col-xs-12">
         <!-- Aquí se contemplarán datos varios de la veterinaria en general -->
         <div class="part1 col-xs-12 col-sm-4">
-            <h4>Casa central: </h4><br>
+            <h4>Casa central: </h4>
             <p>Dirección: Álvarez 2336 <br> Viña del Mar <br> Región de Valparaíso
                 <br> Teléfono: (32) 226 8600</p>
         </div>
         <div class="part2 col-xs-12 col-sm-4">
-            <h4>Mapa del sitio:</h4><br>
-            <a href="home.html">Inicio</a><br>
+            <h4>Mapa del sitio:</h4>
+            <a href="home.html">Inicio</a>
             <a href="planes.html">Conoce nuestros planes</a><br>
             <a href="quienes-somos.html">Quienes somos</a><br>
             <a href="galeria.html">Galería</a><br>
             <a href="registro.html">Regístrate</a><br>
         </div>
         <div class="part3 col-xs-12 col-sm-4">
-            <h4>Links de Interés:</h4><br>
+            <h4>Links de Interés:</h4>
             <a href="https://registratumascota.cl/inicio.xhtml">Registro nacional de tenencia responsable</a><br>
             <a href="https://www.registrocivildemascotas.cl">Registro civil de mascotas</a><br>
             <a href="https://registratumascota.cl/inicio.xhtml">Comunidad Mascotas Online</a><br>
             <a href="https://www.cuidamelo.cl/">Encarga tu mascota</a><br>
-            <a href="https://www.latam.com/es_cl/informacion-para-tu-viaje/como-viajar-con-tu-mascota/?ds_rl=1270154&ds_rl=1270154&gclid=EAIaIQobChMIm7ifybbq5AIVjQ2RCh3MIQZ-EAAYASAAEgIHmPD_BwE&gclsrc=aw.ds">Viaja con tu mascota</a>
+            <a
+                href="https://www.latam.com/es_cl/informacion-para-tu-viaje/como-viajar-con-tu-mascota/?ds_rl=1270154&ds_rl=1270154&gclid=EAIaIQobChMIm7ifybbq5AIVjQ2RCh3MIQZ-EAAYASAAEgIHmPD_BwE&gclsrc=aw.ds">Viaja
+                con tu mascota</a>
         </div>
     </div>
     <script src="{% static 'JS/scripts.js' %}"></script>
 </body>
+
 </html>

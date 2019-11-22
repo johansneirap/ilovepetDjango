@@ -8,6 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>I-love-Pet</title>
+<<<<<<< HEAD
+=======
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+>>>>>>> master
     <link href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Eczar&display=swap" rel="stylesheet">
@@ -28,6 +33,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
     <!-- menu de navegacion principal-->
     <div class="banner">
         <div class="row middle-xs banner">
@@ -108,8 +114,45 @@
             <a href="https://registratumascota.cl/inicio.xhtml">Comunidad Mascotas Online</a><br>
             <a href="https://www.cuidamelo.cl/">Encarga tu mascota</a><br>
             <a href="https://www.latam.com/es_cl/informacion-para-tu-viaje/como-viajar-con-tu-mascota/?ds_rl=1270154&ds_rl=1270154&gclid=EAIaIQobChMIm7ifybbq5AIVjQ2RCh3MIQZ-EAAYASAAEgIHmPD_BwE&gclsrc=aw.ds">Viaja con tu mascota</a>
+=======
+    <!-- overlay login -->
+    <div class="overlay" id="overlay">
+        <div class="popup active" id="popup">
+            <h3>Inicia Sesión</h3>
+            <h4>en I Love Pet </h4>
+            <form action="" method="POST">
+                {%  csrf_token %}
+                {% if form.error_messages %}
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>Advertencia: </strong> {{ form.get_invalid_login_error }}
+                </div>
+                {% endif %}
+                <div class="contenedor-inputs">
+                    {{ form.username }}
+                    {{form.password}}
+                    <!-- <input type="text" placeholder="Usuario" id="userTxt" name="username">
+                    <input type="password" placeholder="Contraseña" id="userPwd" name="password"> -->
+                </div>
+                <input type="submit" class="btn-submit" value="Entrar">
+            </form>
+            <a class="btn" style="color:red" href="{% url 'password_reset'%}">¿Olvidaste tu contraseña? <u> Recuperala aquí...</u></a>
+            <br><br>
+            <a href="{% url 'home' %}">
+                <button class="btn btn-primary" style="width: 56%;">Sitio Invitado 
+                    <i class="fas fa-home"></i>
+                </button>
+            </a>
+
+>>>>>>> master
         </div>
     </div>
     <script src="{% static 'JS/scripts.js' %}"></script>
 </body>
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 </html>

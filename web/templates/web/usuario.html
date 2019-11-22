@@ -1,0 +1,9 @@
+{% extends 'web/perfil.html' %}
+
+{% block content %}
+{% if user.is_staff %}
+<h1>Welcome, {{ user.first_name }}. Thanks for logging in.</h1>
+{% else %}
+<h1>Welcome, {{ user.cliente.nombre }}. Thanks for logging in.</h1>
+{% endif %}
+{% endblock %}

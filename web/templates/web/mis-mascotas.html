@@ -1,0 +1,62 @@
+{% extends 'web/perfil.html' %}
+{% load static %}
+{% block content %}
+<br><br>
+<table class="table ">
+    <thead class="thead-light">
+        <tr>
+            <th>Rut</td>
+            <th>Nombre</td>
+            <th>Sexo</td>
+            <th>Fecha de Nacimiento</td>
+            <th>Direccion</td>
+            <th>Tipo</td>
+                <th>Dueño</td>
+            <th> Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if mascotas%}
+        {% for  mascota in mascotas %}
+        <tr>
+            <td>{{mascota.rutMascota}}</td>
+            <td>{{ mascota.nombre}}</td>
+            <td>{{ mascota.sexo}}</td>
+            <td>{{ mascota.fechaNacimiento}}</td>
+            <td>{{ mascota.direccion}}</td>
+            <td>{{ mascota.tipo}}</td>
+            <td>{{ mascota.dueno}}</td>
+            <td><a class="btn btn-primary" href="{% url 'editar_mascota' mascota.rutMascota%}">Editar</a>
+                <a class="btn btn-danger" href="{% url 'eliminar_mascota' mascota.rutMascota%}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <h1>No hay registros de mascotas</h1>
+
+        {% endif %}
+    </tbody>
+</table>
+<div class="container">
+    <div class="row col-lg-12">
+        <form action="{% url 'listado_mascotas' %}" method="get" class="form-group col-lg-12">
+                <label for="featured">Sexo: </label>
+                <select class="form-group " name="featured">
+                    <option value="Macho">Macho</option>
+                    <option value="Hembra">Hembra</option>
+                </select>
+                <input class="btn-sm btn-default col-lg-1"type="submit" value="Filter" />
+        </form>
+        <form action="{% url 'listado_mascotas' %}" method="get" class="form-group col-lg-12">
+                <label for="featured2">Tipo Mascota: </label>
+                <select class="form-group " name="featured2">
+                    {% for tipo in tipos %}
+                    <option value="{{tipo.id}}">{{tipo.nombre}}</option>
+                    {% endfor %}
+                </select>
+                <input class="btn-sm btn-default col-lg-1 "type="submit" value="Filter" />
+        </form>
+        <a href="{% url 'listado_mascotas' %}"><button class="btn-sm btn-info"> Restaurar</button></a>
+    </div>
+    </div>
+{% endblock%}
