@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>I-love-Pet</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Eczar&display=swap" rel="stylesheet">
@@ -28,86 +29,31 @@
 </head>
 
 <body>
-    <!-- menu de navegacion principal-->
-    <div class="banner">
-        <div class="row middle-xs banner">
-            <div class="col-xs-12 col-md-3 center-xs middle-xs logo-ilovepet">
-                <!-- <img src="img/logo.png" alt-text="logo" style="height: 64px;"> -->
-                I Love Pet <i class="fas fa-paw"></i>
-            </div>
-            <div class="row col-xs-12 col-md-9 middle-xs">
-                <div class="tab-menu center-xs col-xs-12 col-md-2 middle-xs">
-                    <br>
-                    <a href="home.html" rel="noopener noreferrer">Inicio</a>
-                    <br><br>
-                </div>
-                <div class="tab-menu col-xs-12 col-md-2 center-xs middle-xs">
-                    <br>    
-                    <a href="planes.html" rel="noopener noreferrer">Planes</a>
-                </div>
-                <div class="tab-menu col-xs-12 col-md-2 col-lg-3 center-xs middle-xs">
-                    <br>
-                    <a href="quienes-somos.html" rel="noopener noreferrer">Quienes Somos</a>
-                    <br><br>
-                </div>
-                <div class="tab-menu col-xs-12 col-md-2 center-xs">
-                    <br>
-                    <a href="galeria.html" rel="noopener noreferrer">Galería</a>
-                    <br><br>
-                </div>
-                <div class="tab-menu login col-xs-12 col-md-4 col-lg-3 center-xs middle-xs">
-                    <br>
-                    <button class="btn-abrir-popup" id="btn-abrir-popup">Inicia Sesión</button><br>
-                    <a href="registro.html" id="link-registrar-usuario"> ¿No estás registrado? Crea tu cuenta</a>
-                    <br><br>
-                </div>
-            </div>
-        </div>
-    </div>
-    {% block content %}
-    {% endblock %}
     <!-- overlay login -->
     <div class="overlay" id="overlay">
-        <div class="popup" id="popup">
-            <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+        <div class="popup active" id="popup">
             <h3>Inicia Sesión</h3>
-            <h4>en nuestra plataforma</h4>
-            <form action="" method="POST"> {%  csrf_token %}
+            <h4>en I Love Pet </h4>
+            <form action="" method="POST"> 
+                {%  csrf_token %}
+                {% if form.error_messages %}
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss ="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>Advertencia: </strong> {{ form.get_invalid_login_error }}
+                    </div>
+                {% endif %}
                 <div class="contenedor-inputs">
-                    {{form.as_p}}
-                    <input type="text" placeholder="Usuario" id="userTxt" name="username">
-                    <input type="password" placeholder="Contraseña" id="userPwd" name="password">
+                    {{ form.username }}
+                    {{form.password}}
+                    <!-- <input type="text" placeholder="Usuario" id="userTxt" name="username">
+                    <input type="password" placeholder="Contraseña" id="userPwd" name="password"> -->
                 </div>
                 <input type="submit" class="btn-submit" value="Entrar">
             </form>
-        </div>
-    </div>
-    <!-- footer de la página, compuesto por una imagen + datos de la veterinaria -->
-    <div class="footer">
-        <img src="{% static 'img/footer-bg.jpg' %}" alt="" style="width:100%">
-    </div>
-    <div class="row footer-info col-xs-12">
-        <!-- Aquí se contemplarán datos varios de la veterinaria en general -->
-        <div class="part1 col-xs-12 col-sm-4">
-            <h4>Casa central: </h4><br>
-            <p>Dirección: Álvarez 2336 <br> Viña del Mar <br> Región de Valparaíso
-                <br> Teléfono: (32) 226 8600</p>
-        </div>
-        <div class="part2 col-xs-12 col-sm-4">
-            <h4>Mapa del sitio:</h4><br>
-            <a href="home.html">Inicio</a><br>
-            <a href="planes.html">Conoce nuestros planes</a><br>
-            <a href="quienes-somos.html">Quienes somos</a><br>
-            <a href="galeria.html">Galería</a><br>
-            <a href="registro.html">Regístrate</a><br>
-        </div>
-        <div class="part3 col-xs-12 col-sm-4">
-            <h4>Links de Interés:</h4><br>
-            <a href="https://registratumascota.cl/inicio.xhtml">Registro nacional de tenencia responsable</a><br>
-            <a href="https://www.registrocivildemascotas.cl">Registro civil de mascotas</a><br>
-            <a href="https://registratumascota.cl/inicio.xhtml">Comunidad Mascotas Online</a><br>
-            <a href="https://www.cuidamelo.cl/">Encarga tu mascota</a><br>
-            <a href="https://www.latam.com/es_cl/informacion-para-tu-viaje/como-viajar-con-tu-mascota/?ds_rl=1270154&ds_rl=1270154&gclid=EAIaIQobChMIm7ifybbq5AIVjQ2RCh3MIQZ-EAAYASAAEgIHmPD_BwE&gclsrc=aw.ds">Viaja con tu mascota</a>
+            <br>
+    <a href="{% url 'home' %}"><button class="btn btn-primary" style="width: 56%;">Sitio Invitado <i class="fas fa-home"></i></button></a>
         </div>
     </div>
     <script src="{% static 'JS/scripts.js' %}"></script>
