@@ -71,6 +71,8 @@ def registro2(request):
         
         if form.is_valid() and form_user.is_valid() :
                 user=form_user.save()
+                user.email=user.username
+                user.save()
                 cliente = form.save(commit=False) 
                 cliente.user = user
 
