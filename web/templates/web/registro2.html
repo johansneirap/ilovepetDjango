@@ -13,7 +13,11 @@
                 <div class="row">
                     <div class="div-izq col-lg-6">
                         <div class="input-group">
-                            <label class="label" for="rut">Rut:</label>
+                            <label class="label" for="email">Correo:</label>
+                            {{form_user.username}}
+                        </div>
+                        <div class="input-group">
+                            <label class="label" for="rut" >Rut:</label>
                             {{form.rut}} <!-- id will be id_%s , in this example id_rut-->
                         </div>
                         <div class="input-group">
@@ -38,10 +42,6 @@
                             <label class="label" for="comunas">Comunas:</label>
                             {{form.comuna}}
                             <!-- <select name="comunas" id="comunas"></select> -->
-                        </div>
-                        <div class="input-group">
-                            <label class="label" for="email">Correo:</label>
-                            {{form_user.username}}
                         </div>
                     </div>
                     <div class="div-der col-lg-6">
