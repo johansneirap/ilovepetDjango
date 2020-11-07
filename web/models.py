@@ -43,3 +43,20 @@ class Galeria(models.Model):
 
     def __str__(self):
         return '{}'.format(self.descripcion) 
+
+class TipoAtencion(models.Model):
+    idTipoAtencion = models.CharField(max_length=10, primary_key=True)
+    descripcion = models.CharField(max_length=50)
+
+    def __str__(self):
+        return '{}'.format(self.descripcion)
+
+class HistorialMedico(models.Model):
+    nroAtencion = models.CharField(max_length=8, primary_key=True)
+    rutMascota = models.ForeignKey(Mascota, null=False, blank=False, on_delete=models.CASCADE)
+    fecha = models.DateField(null=False, blank=False)
+    rutMedico = models.CharField(max_length=10)
+    tipoAtencion = models.ForeignKey(TipoAtencion, null=True, blank=True, on_delete=models.CASCADE)
+    peso = models.CharField(max_length=6)
+    temperatura = models.CharField(max_length=6)
+    detalleAtencion = models.CharField(max_length=100)

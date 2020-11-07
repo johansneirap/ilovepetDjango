@@ -20,6 +20,7 @@ urlpatterns = [
     path('logout/',login_required(views.logoutUsuario),name='logout'),
     path('registro/',views.RegistroUsuario.as_view(),name='registro'),
     url(r'^editar/(?P<rutMascota>\d+)/$',views.actualizar_mascota, name='editar_mascota'),
-    url(r'^eliminar/(?P<rutMascota>\d+)/$',views.eliminiar_mascota, name='eliminar_mascota')
+    url(r'^eliminar/(?P<rutMascota>\d+)/$',views.eliminiar_mascota, name='eliminar_mascota'),
+    url(r'^historial-mascota/(?P<rutMascota>\d+)/$',views.historial_mascota, name='historial_mascota')
 
 ]

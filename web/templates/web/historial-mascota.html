@@ -1,0 +1,45 @@
+{% extends 'web/perfil.html' %}
+{% load static %}
+{% block content %}
+<br><br>
+  {% if atenciones %}
+  <div class="container">
+    <h1>Historial de atenciones para {{mascota.nombre}}</h1>
+    <br>
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Nro Atención</th>
+        <th scope="col">Rut Mascota</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Peso</th>
+        <th scope="col">Temperatura</th>
+        <th scope="col">Rut Veterinario</th>
+        <th scope="col">Tipo Atención</th>
+        <th scope="col">Detalle Atención</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for atencion in atenciones %}
+    <tr>
+      <th scope="row">{{atencion.nroAtencion}}</th>
+      <td>{{mascota.rutMascota}}</td>
+      <td>{{atencion.fecha}}</td>
+      <td>{{atencion.peso}}</td>
+      <td>{{atencion.temperatura}} ºC</td>
+      <td>{{atencion.rutMedico}}</td>
+      <td>{{atencion.tipoAtencion}}</td>
+      <td>{{atencion.detalleAtencion}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+  {% else %}
+    <h1>No hay historial de atenciones para {{mascota.nombre}}</h1>
+  </div>
+  {% endif %}
+  <div class="text-right">
+  <a class="btn btn-primary" href="{% url 'listado_mascotas'%}">Volver</a>
+</div>
+</div>
+{% endblock%}

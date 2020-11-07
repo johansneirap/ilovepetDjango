@@ -2,12 +2,13 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import ClienteForm,MascotaForm, FormularioLogin
-from .models import Mascota, TipoMascota, Galeria
+from .models import Mascota, TipoMascota, Galeria, HistorialMedico
 from django.views.generic.edit import FormView,CreateView
 from django.contrib.auth import login,logout
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 # Create your views here.
 
 class RegistroUsuario(CreateView):
@@ -23,7 +24,8 @@ class Login(FormView):
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             return HttpResponseRedirect(self.get_success_url())
-        else: 
+        else:
+            messages.error(request, 'Nombre de usuario o contraseña incorrectos')
             return super(Login,self).dispatch(request, *args, **kwargs)
     def form_valid(self,form):
         login(self.request,form.get_user())
@@ -47,7 +49,7 @@ def usuario(request):
             usuario_logeado = username
     return render(request, 'web/usuario.html',{})
 
-def home(request):
+def home(request):    
     return render(request, 'web/home.html',{})
 
 def galeria(request):
@@ -70,15 +72,14 @@ def registro2(request):
         form = ClienteForm(request.POST)
         
         if form.is_valid() and form_user.is_valid() :
-                user=form_user.save()
-                user.email=user.username
-                user.save()
-                cliente = form.save(commit=False) 
-                cliente.user = user
-
-                cliente.save()
-
-        return redirect('/accounts/login/')
+            user=form_user.save()
+            user.email=user.username
+            user.save()
+            cliente = form.save(commit=False) 
+            cliente.user = user
+            cliente.save()
+            messages.success(request, 'Usuario registrado exitosamente')
+            return redirect('/accounts/login/')
     else:
         form = ClienteForm()
         form_user = UserCreationForm()
@@ -142,4 +143,10 @@ def eliminiar_mascota(request, rutMascota):
         mascota.delete()
         return redirect ('listado_mascotas')
     return render(request, 'web/eliminar-mascota.html',{'mascota':mascota})
+
+@login_required()
+def historial_mascota(request, rutMascota):
+    mascota = Mascota.objects.get(rutMascota=rutMascota)
+    atenciones = HistorialMedico.objects.filter(rutMascota=rutMascota)
+    return render (request, 'web/historial-mascota.html',{'mascota':mascota, 'atenciones':atenciones})
 
